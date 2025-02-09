@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
+import SkillsSphere from "../3d/SkillsSphere";
 
 const skills = [
   {
@@ -27,6 +28,13 @@ export default function Skills() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl font-bold mb-8">Skills & Technologies</h2>
+
+          {/* 3D Skills Visualization */}
+          <div className="mb-12">
+            <SkillsSphere />
+          </div>
+
+          {/* Traditional Skills Grid */}
           <div className="grid md:grid-cols-3 gap-6">
             {skills.map((skillGroup, index) => (
               <motion.div
