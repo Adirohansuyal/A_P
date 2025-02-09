@@ -10,31 +10,31 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
+    title: "Voice-Controlled Virtual Assistant Web App",
+    description: "Developed an AI-powered virtual assistant with voice control capabilities, integrating natural language processing and speech recognition.",
+    technologies: ["Python", "Streamlit", "NLP", "Speech Recognition"],
+    github: "https://github.com/Adirohansuyal/Personal_Assistant",
+    demo: "https://adityaalexa.streamlit.app/",
+  },
+  {
+    title: "Airfare Price Prediction Web App",
+    description: "Created a machine learning model to predict flight prices, helping users find the best time to book their flights.",
+    technologies: ["Python", "Machine Learning", "Scikit-learn", "Data Analysis"],
+    github: "https://github.com/Adirohansuyal/FLIGHT_PREDICTOR",
+    demo: "https://github.com/Adirohansuyal/FLIGHT_PREDICTOR",
+  },
+  {
     title: "Brain Tumor Detection",
-    description: "Developed a deep learning model using CNN for brain tumor detection with 98% accuracy. Implemented data augmentation and transfer learning techniques.",
+    description: "Developed a deep learning model using CNN for brain tumor detection with high accuracy. Implemented data augmentation and transfer learning.",
     technologies: ["Python", "TensorFlow", "OpenCV", "Deep Learning"],
     github: "https://github.com/Adirohansuyal/Brain_Tumor_Detection",
     demo: "https://github.com/Adirohansuyal/Brain_Tumor_Detection",
-  },
-  {
-    title: "House Price Prediction",
-    description: "Created a machine learning model to predict house prices using advanced regression techniques and feature engineering.",
-    technologies: ["Python", "Scikit-learn", "Pandas", "Machine Learning"],
-    github: "https://github.com/Adirohansuyal/House_price_prediction",
-    demo: "https://github.com/Adirohansuyal/House_price_prediction",
-  },
-  {
-    title: "Handwritten Digit Recognition",
-    description: "Built a CNN model for recognizing handwritten digits with high accuracy using the MNIST dataset.",
-    technologies: ["Python", "TensorFlow", "Neural Networks", "Computer Vision"],
-    github: "https://github.com/Adirohansuyal/Handwritten-digit-recognition",
-    demo: "https://github.com/Adirohansuyal/Handwritten-digit-recognition",
   },
 ];
 
 export default function Projects() {
   const sectionRef = useRef(null);
-  const cardsRef = useRef([]);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -42,24 +42,26 @@ export default function Projects() {
 
     // GSAP animations for cards
     cards.forEach((card, index) => {
-      gsap.fromTo(
-        card,
-        { 
-          opacity: 0,
-          y: 50
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          delay: index * 0.2,
-          scrollTrigger: {
-            trigger: card,
-            start: "top bottom-=100",
-            toggleActions: "play none none reverse"
+      if (card) {
+        gsap.fromTo(
+          card,
+          { 
+            opacity: 0,
+            y: 50
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: index * 0.2,
+            scrollTrigger: {
+              trigger: card,
+              start: "top bottom-=100",
+              toggleActions: "play none none reverse"
+            }
           }
-        }
-      );
+        );
+      }
     });
   }, []);
 
@@ -136,6 +138,24 @@ export default function Projects() {
                 </Card>
               </motion.div>
             ))}
+          </div>
+          <div className="mt-12 text-center">
+            <Button
+              size="lg"
+              variant="outline"
+              className="hover:scale-105 transition-transform"
+              asChild
+            >
+              <a
+                href="https://github.com/Adirohansuyal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center"
+              >
+                <Github className="mr-2 h-5 w-5" />
+                View More Projects
+              </a>
+            </Button>
           </div>
         </motion.div>
       </div>
