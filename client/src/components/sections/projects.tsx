@@ -10,25 +10,25 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: "AI Smart Assistant",
-    description: "Developed an AI-powered smart assistant using Python and deep learning techniques for automated task management and scheduling.",
-    technologies: ["Python", "TensorFlow", "NLP", "Flask"],
-    github: "https://github.com/Adirohansuyal",
-    demo: "#",
+    title: "Brain Tumor Detection",
+    description: "Developed a deep learning model using CNN for brain tumor detection with 98% accuracy. Implemented data augmentation and transfer learning techniques.",
+    technologies: ["Python", "TensorFlow", "OpenCV", "Deep Learning"],
+    github: "https://github.com/Adirohansuyal/Brain_Tumor_Detection",
+    demo: "https://github.com/Adirohansuyal/Brain_Tumor_Detection",
   },
   {
-    title: "Chatbot Development",
-    description: "Created an intelligent chatbot using machine learning algorithms for enhanced customer support automation.",
-    technologies: ["Python", "NLP", "Machine Learning", "APIs"],
-    github: "https://github.com/Adirohansuyal",
-    demo: "#",
+    title: "House Price Prediction",
+    description: "Created a machine learning model to predict house prices using advanced regression techniques and feature engineering.",
+    technologies: ["Python", "Scikit-learn", "Pandas", "Machine Learning"],
+    github: "https://github.com/Adirohansuyal/House_price_prediction",
+    demo: "https://github.com/Adirohansuyal/House_price_prediction",
   },
   {
-    title: "Data Analytics Dashboard",
-    description: "Built an interactive dashboard for data visualization and analysis using Power BI and Python.",
-    technologies: ["Power BI", "Python", "SQL", "Data Analytics"],
-    github: "https://github.com/Adirohansuyal",
-    demo: "#",
+    title: "Handwritten Digit Recognition",
+    description: "Built a CNN model for recognizing handwritten digits with high accuracy using the MNIST dataset.",
+    technologies: ["Python", "TensorFlow", "Neural Networks", "Computer Vision"],
+    github: "https://github.com/Adirohansuyal/Handwritten-digit-recognition",
+    demo: "https://github.com/Adirohansuyal/Handwritten-digit-recognition",
   },
 ];
 
