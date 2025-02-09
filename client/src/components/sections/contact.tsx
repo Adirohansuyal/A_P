@@ -72,10 +72,10 @@ export default function Contact() {
                 <p className="flex items-center gap-2">
                   <span className="font-medium">Email:</span>
                   <a
-                    href="mailto:adityasuyal74@gmail.com"
+                    href="mailto:adityasuyal0001@gmail.com"
                     className="text-primary hover:underline"
                   >
-                    adityasuyal74@gmail.com
+                    adityasuyal0001@gmail.com
                   </a>
                 </p>
                 <div className="flex gap-4">
