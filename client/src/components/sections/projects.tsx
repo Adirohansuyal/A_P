@@ -45,7 +45,7 @@ export default function Projects() {
       if (card) {
         gsap.fromTo(
           card,
-          { 
+          {
             opacity: 0,
             y: 50
           },
@@ -66,16 +66,16 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="py-24" ref={sectionRef}>
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="projects" className="py-16 md:py-24" ref={sectionRef}>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold mb-8">Featured Projects</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8">Featured Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -84,11 +84,11 @@ export default function Projects() {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <Card className="h-full hover:shadow-xl transition-all duration-300 bg-card/50 backdrop-blur-sm">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                  <CardContent className="p-4 md:p-6">
+                    <h3 className="text-lg md:text-xl font-semibold mb-2 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                       {project.title}
                     </h3>
-                    <p className="text-muted-foreground mb-4">
+                    <p className="text-sm md:text-base text-muted-foreground mb-4">
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-4">
@@ -102,12 +102,12 @@ export default function Projects() {
                       ))}
                     </div>
                   </CardContent>
-                  <CardFooter className="p-6 pt-0">
-                    <div className="flex gap-4">
+                  <CardFooter className="p-4 md:p-6 pt-0">
+                    <div className="flex gap-3 md:gap-4 w-full">
                       <Button
                         size="sm"
                         variant="outline"
-                        className="hover:scale-105 transition-transform"
+                        className="flex-1 hover:scale-105 transition-transform text-xs md:text-sm"
                         asChild
                       >
                         <a
@@ -115,13 +115,13 @@ export default function Projects() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <Github className="mr-2 h-4 w-4" />
+                          <Github className="mr-1 md:mr-2 h-3 w-3 md:h-4 md:w-4" />
                           GitHub
                         </a>
                       </Button>
                       <Button
                         size="sm"
-                        className="hover:scale-105 transition-transform"
+                        className="flex-1 hover:scale-105 transition-transform text-xs md:text-sm"
                         asChild
                       >
                         <a
@@ -129,7 +129,7 @@ export default function Projects() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <ExternalLink className="mr-2 h-4 w-4" />
+                          <ExternalLink className="mr-1 md:mr-2 h-3 w-3 md:h-4 md:w-4" />
                           Demo
                         </a>
                       </Button>
@@ -139,7 +139,7 @@ export default function Projects() {
               </motion.div>
             ))}
           </div>
-          <div className="mt-12 text-center">
+          <div className="mt-8 md:mt-12 text-center">
             <Button
               size="lg"
               variant="outline"

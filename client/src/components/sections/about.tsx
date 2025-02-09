@@ -3,16 +3,19 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const timeline = [
   {
+    id: 1,
     year: "2023",
     title: "Data Science Student",
     description: "Pursuing advanced studies in Data Science and Machine Learning",
   },
   {
-    year: "2023",
+    id: 2,
+    year: "2023-2",
     title: "Research Intern",
     description: "Worked on Machine Learning and Deep Learning projects",
   },
   {
+    id: 3,
     year: "2022",
     title: "B.Tech Student",
     description: "Studying Computer Science with focus on AI and ML",
@@ -44,13 +47,13 @@ export default function About() {
               </p>
             </div>
             <div className="space-y-6">
-              {timeline.map((item, index) => (
+              {timeline.map((item) => (
                 <motion.div
-                  key={item.year}
+                  key={item.id}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 }}
+                  transition={{ delay: item.id * 0.2 }}
                 >
                   <Card>
                     <CardContent className="p-6">

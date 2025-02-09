@@ -64,19 +64,19 @@ export default function Hero() {
       {/* Cursor highlight */}
       <div
         ref={cursorRef}
-        className="fixed w-64 h-64 pointer-events-none mix-blend-soft-light bg-gradient-radial from-primary/30 to-transparent rounded-full -translate-x-1/2 -translate-y-1/2 z-50"
+        className="fixed w-32 md:w-64 h-32 md:h-64 pointer-events-none mix-blend-soft-light bg-gradient-radial from-primary/30 to-transparent rounded-full -translate-x-1/2 -translate-y-1/2 z-50"
       />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="max-w-5xl mx-auto px-6 py-24 md:py-28 text-center relative z-10"
+        className="w-full max-w-5xl mx-auto px-4 sm:px-6 py-16 md:py-24 lg:py-28 text-center relative z-10"
       >
-        <div className="relative mb-8">
+        <div className="relative mb-6 md:mb-8">
           <motion.div
             ref={imageRef}
-            className="w-48 h-48 mx-auto relative"
+            className="w-32 h-32 md:w-48 md:h-48 mx-auto relative"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -92,7 +92,7 @@ export default function Hero() {
         </div>
 
         <motion.h1
-          className="text-4xl md:text-6xl font-bold mb-6"
+          className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
@@ -100,7 +100,7 @@ export default function Hero() {
           Aditya Suyal
         </motion.h1>
         <motion.p
-          className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+          className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto px-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
@@ -137,7 +137,7 @@ export default function Hero() {
           className="absolute inset-0"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236366f1' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundSize: '60px 60px',
+            backgroundSize: "60px 60px",
           }}
         >
           <motion.div

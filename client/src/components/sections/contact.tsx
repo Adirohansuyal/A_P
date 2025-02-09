@@ -16,7 +16,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { apiRequest } from "@/lib/queryClient";
-import { Github } from "@/components/ui/icons"; // Assuming Github is a custom SVG icon
+import { Github } from "@/components/ui/icons";
 
 export default function Contact() {
   const { toast } = useToast();
@@ -32,7 +32,6 @@ export default function Contact() {
   const mutation = useMutation({
     mutationFn: async (data: InsertMessage) => {
       await apiRequest("POST", "/api/contact", data);
-      // After successful form submission, redirect to WhatsApp
       const whatsappMessage = encodeURIComponent(
         `Name: ${data.name}\nEmail: ${data.email}\nMessage: ${data.message}`
       );
@@ -62,22 +61,22 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24">
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="contact" className="py-16 md:py-24">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
-          <div className="grid md:grid-cols-2 gap-12">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8">Get in Touch</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             <div>
-              <p className="text-lg text-muted-foreground mb-6">
+              <p className="text-base md:text-lg text-muted-foreground mb-6">
                 Have a question or want to work together? Feel free to reach out!
               </p>
               <div className="space-y-4">
-                <p className="flex items-center gap-2">
+                <p className="flex items-center gap-2 text-sm md:text-base">
                   <span className="font-medium">Email:</span>
                   <a
                     href="mailto:adityasuyal0001@gmail.com"
@@ -86,7 +85,7 @@ export default function Contact() {
                     adityasuyal0001@gmail.com
                   </a>
                 </p>
-                <div className="flex gap-4">
+                <div className="flex gap-3 md:gap-4">
                   <Button variant="outline" size="icon" asChild>
                     <a
                       href="https://github.com/Adirohansuyal"
@@ -120,8 +119,8 @@ export default function Contact() {
                       rel="noopener noreferrer"
                     >
                       <span className="sr-only">WhatsApp</span>
-                      <svg 
-                        className="h-5 w-5" 
+                      <svg
+                        className="h-5 w-5"
                         fill="currentColor"
                         viewBox="0 0 24 24"
                       >
@@ -136,7 +135,7 @@ export default function Contact() {
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}
-                  className="space-y-6"
+                  className="space-y-4 md:space-y-6"
                 >
                   <FormField
                     control={form.control}
