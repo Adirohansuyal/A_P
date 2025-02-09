@@ -2,6 +2,11 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
@@ -28,8 +33,38 @@ const projects = [
 ];
 
 export default function Projects() {
+  const sectionRef = useRef(null);
+  const cardsRef = useRef([]);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const cards = cardsRef.current;
+
+    // GSAP animations for cards
+    cards.forEach((card, index) => {
+      gsap.fromTo(
+        card,
+        { 
+          opacity: 0,
+          y: 50
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: index * 0.2,
+          scrollTrigger: {
+            trigger: card,
+            start: "top bottom-=100",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+  }, []);
+
   return (
-    <section id="projects" className="py-24">
+    <section id="projects" className="py-24" ref={sectionRef}>
       <div className="max-w-5xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -42,14 +77,13 @@ export default function Projects() {
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                ref={(el) => (cardsRef.current[index] = el)}
+                whileHover={{ y: -5 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow">
+                <Card className="h-full hover:shadow-xl transition-all duration-300 bg-card/50 backdrop-blur-sm">
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">
+                    <h3 className="text-xl font-semibold mb-2 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                       {project.title}
                     </h3>
                     <p className="text-muted-foreground mb-4">
@@ -59,7 +93,7 @@ export default function Projects() {
                       {project.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="text-xs bg-accent px-2 py-1 rounded"
+                          className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full transition-colors hover:bg-primary/20"
                         >
                           {tech}
                         </span>
@@ -68,7 +102,12 @@ export default function Projects() {
                   </CardContent>
                   <CardFooter className="p-6 pt-0">
                     <div className="flex gap-4">
-                      <Button size="sm" variant="outline" asChild>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="hover:scale-105 transition-transform"
+                        asChild
+                      >
                         <a
                           href={project.github}
                           target="_blank"
@@ -78,7 +117,11 @@ export default function Projects() {
                           GitHub
                         </a>
                       </Button>
-                      <Button size="sm" asChild>
+                      <Button
+                        size="sm"
+                        className="hover:scale-105 transition-transform"
+                        asChild
+                      >
                         <a
                           href={project.demo}
                           target="_blank"

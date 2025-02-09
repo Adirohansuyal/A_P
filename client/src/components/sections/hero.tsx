@@ -1,16 +1,73 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
+  const sectionRef = useRef(null);
+  const imageRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const image = imageRef.current;
+
+    // GSAP animations
+    gsap.fromTo(
+      section,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+          trigger: section,
+          start: "top center",
+          end: "bottom center",
+          scrub: 1,
+        },
+      }
+    );
+
+    // Parallax effect on image
+    gsap.to(image, {
+      y: 100,
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+  }, []);
+
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section ref={sectionRef} className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="max-w-5xl mx-auto px-6 py-24 md:py-28 text-center relative z-10"
       >
+        <div className="relative mb-8">
+          <motion.div
+            ref={imageRef}
+            className="w-48 h-48 mx-auto relative"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="absolute inset-0 bg-primary/10 rounded-full animate-pulse" />
+            <img
+              src="https://media.licdn.com/dms/image/D5603AQF8kGRHpqiQkQ/profile-displayphoto-shrink_400_400/0/1697665045902?e=1712793600&v=beta&t=lNPfRG2cBcE5MBHPTh6WRN0mO2OQ9rMhJpNEwlluPCY"
+              alt="Aditya Suyal"
+              className="w-full h-full object-cover rounded-full border-4 border-primary/20 hover:border-primary transition-colors duration-300"
+            />
+          </motion.div>
+        </div>
+
         <motion.h1
           className="text-4xl md:text-6xl font-bold mb-6"
           initial={{ opacity: 0, y: 20 }}
@@ -31,21 +88,23 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
           <Button
             size="lg"
-            className="rounded-full"
+            className="rounded-full transition-all duration-300 hover:shadow-lg hover:bg-primary/90"
             asChild
           >
             <a href="#about">
               Explore My Work
-              <ArrowDown className="ml-2 h-4 w-4" />
+              <ArrowDown className="ml-2 h-4 w-4 animate-bounce" />
             </a>
           </Button>
         </motion.div>
       </motion.div>
 
-      {/* Animated Tech Background */}
+      {/* Animated Tech Background with Parallax */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-background to-background" />
         <motion.div
