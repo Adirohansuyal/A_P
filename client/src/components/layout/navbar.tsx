@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./theme-toggle";
@@ -13,14 +13,15 @@ const navigation = [
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [location] = useLocation();
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-background/80 backdrop-blur-sm">
       <nav className="flex items-center justify-between p-6 lg:px-8 max-w-7xl mx-auto">
         <div className="flex lg:flex-1">
-          <Link href="/" className="text-xl font-bold">
+          <a href="#/" className="text-xl font-bold">
             Portfolio
-          </Link>
+          </a>
         </div>
         <div className="flex lg:hidden">
           <ThemeToggle />
@@ -43,6 +44,7 @@ export default function Navbar() {
               key={item.name}
               href={item.href}
               className="text-sm font-semibold leading-6 hover:text-primary transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
             >
               {item.name}
             </a>
