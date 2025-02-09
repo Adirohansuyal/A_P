@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Hero() {
   const sectionRef = useRef(null);
   const imageRef = useRef(null);
+  const cursorRef = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -41,10 +42,31 @@ export default function Hero() {
         scrub: true,
       },
     });
+
+    // Cursor highlight effect
+    const cursor = cursorRef.current;
+    const onMouseMove = (e) => {
+      const { clientX, clientY } = e;
+      gsap.to(cursor, {
+        x: clientX,
+        y: clientY,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+    };
+
+    window.addEventListener("mousemove", onMouseMove);
+    return () => window.removeEventListener("mousemove", onMouseMove);
   }, []);
 
   return (
     <section ref={sectionRef} className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Cursor highlight */}
+      <div
+        ref={cursorRef}
+        className="fixed w-64 h-64 pointer-events-none mix-blend-soft-light bg-gradient-radial from-primary/30 to-transparent rounded-full -translate-x-1/2 -translate-y-1/2 z-50"
+      />
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -58,10 +80,11 @@ export default function Hero() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5 }}
+            whileHover={{ scale: 1.05 }}
           >
             <div className="absolute inset-0 bg-primary/10 rounded-full animate-pulse" />
             <img
-              src="https://media.licdn.com/dms/image/D5603AQF8kGRHpqiQkQ/profile-displayphoto-shrink_400_400/0/1697665045902?e=1712793600&v=beta&t=lNPfRG2cBcE5MBHPTh6WRN0mO2OQ9rMhJpNEwlluPCY"
+              src="/PHOTO-2025-02-07-12-00-25.jpg"
               alt="Aditya Suyal"
               className="w-full h-full object-cover rounded-full border-4 border-primary/20 hover:border-primary transition-colors duration-300"
             />

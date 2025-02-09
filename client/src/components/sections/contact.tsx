@@ -81,7 +81,7 @@ export default function Contact() {
                 <div className="flex gap-4">
                   <Button variant="outline" size="icon" asChild>
                     <a
-                      href="https://github.com/adityasuyal"
+                      href="https://github.com/Adirohansuyal"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
