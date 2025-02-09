@@ -84,7 +84,7 @@ export default function Hero() {
           >
             <div className="absolute inset-0 bg-primary/10 rounded-full animate-pulse" />
             <img
-              src="/PHOTO-2025-02-07-12-00-25.jpg"
+              src="client/src/components/sections/adi.jpg"
               alt="Aditya Suyal"
               className="w-full h-full object-cover rounded-full border-4 border-primary/20 hover:border-primary transition-colors duration-300"
             />
