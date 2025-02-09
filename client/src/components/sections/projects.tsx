@@ -5,24 +5,24 @@ import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
-    title: "E-commerce Platform",
-    description: "A modern e-commerce platform built with React and Node.js",
-    technologies: ["React", "Node.js", "MongoDB"],
-    github: "#",
+    title: "AI Smart Assistant",
+    description: "Developed an AI-powered smart assistant using Python and deep learning techniques for automated task management and scheduling.",
+    technologies: ["Python", "TensorFlow", "NLP", "Flask"],
+    github: "https://github.com/adityasuyal",
     demo: "#",
   },
   {
-    title: "Task Management App",
-    description: "A collaborative task management application",
-    technologies: ["Next.js", "TypeScript", "Prisma"],
-    github: "#",
+    title: "Chatbot Development",
+    description: "Created an intelligent chatbot using machine learning algorithms for enhanced customer support automation.",
+    technologies: ["Python", "NLP", "Machine Learning", "APIs"],
+    github: "https://github.com/adityasuyal",
     demo: "#",
   },
   {
-    title: "Portfolio Website",
-    description: "A personal portfolio website showcasing my work",
-    technologies: ["React", "Tailwind CSS", "Framer Motion"],
-    github: "#",
+    title: "Data Analytics Dashboard",
+    description: "Built an interactive dashboard for data visualization and analysis using Power BI and Python.",
+    technologies: ["Power BI", "Python", "SQL", "Data Analytics"],
+    github: "https://github.com/adityasuyal",
     demo: "#",
   },
 ];

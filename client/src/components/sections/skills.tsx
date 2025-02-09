@@ -3,16 +3,16 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const skills = [
   {
-    category: "Frontend",
-    items: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
+    category: "Data Science & ML",
+    items: ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "Pandas", "NumPy"],
   },
   {
-    category: "Backend",
-    items: ["Node.js", "Express", "PostgreSQL", "MongoDB"],
+    category: "Tools & Technologies",
+    items: ["Jupyter", "Git", "SQL", "Power BI", "AWS", "Docker"],
   },
   {
-    category: "Tools",
-    items: ["Git", "Docker", "VS Code", "Figma"],
+    category: "Programming",
+    items: ["Python", "R", "Java", "C++", "JavaScript", "HTML/CSS"],
   },
 ];
 

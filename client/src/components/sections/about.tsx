@@ -4,18 +4,18 @@ import { Card, CardContent } from "@/components/ui/card";
 const timeline = [
   {
     year: "2023",
-    title: "Senior Developer",
-    description: "Leading development of enterprise applications",
+    title: "Data Science Student",
+    description: "Pursuing advanced studies in Data Science and Machine Learning",
   },
   {
-    year: "2021",
-    title: "Full Stack Developer",
-    description: "Building scalable web applications",
+    year: "2023",
+    title: "Research Intern",
+    description: "Worked on Machine Learning and Deep Learning projects",
   },
   {
-    year: "2019",
-    title: "Frontend Developer",
-    description: "Creating responsive user interfaces",
+    year: "2022",
+    title: "B.Tech Student",
+    description: "Studying Computer Science with focus on AI and ML",
   },
 ];
 
@@ -33,12 +33,14 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <p className="text-lg text-muted-foreground mb-6">
-                I'm a passionate developer with expertise in creating modern web applications.
-                I specialize in React, TypeScript, and building beautiful user interfaces.
+                I am an aspiring Data Scientist with a strong foundation in Machine Learning and Deep Learning.
+                Currently pursuing my passion for data science and artificial intelligence through hands-on projects
+                and research work.
               </p>
               <p className="text-lg text-muted-foreground">
-                With years of experience in both frontend and backend development,
-                I bring a holistic approach to solving complex problems.
+                My expertise lies in data analysis, machine learning model development, and implementing
+                innovative solutions using cutting-edge technologies. I am particularly interested in 
+                applying AI to solve real-world problems.
               </p>
             </div>
             <div className="space-y-6">
