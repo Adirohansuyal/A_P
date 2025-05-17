@@ -84,7 +84,7 @@ export default function Hero() {
           >
             <div className="absolute inset-0 bg-primary/10 rounded-full animate-pulse" />
             <img
-              src="/PHOTO-2025-02-07-12-00-25.jpg" // Update this to point to the image in the public folder
+              src="client/public/PHOTO-2025-02-07-12-00-25.jpg" // Update this to point to the image in the public folder
               alt="Aditya Suyal"
               className="w-full h-full object-cover rounded-full border-4 border-primary/20 hover:border-primary transition-colors duration-300"
             />
