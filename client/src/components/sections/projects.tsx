@@ -10,11 +10,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: "Voice-Controlled Virtual Assistant Web App",
+    title: "HealthMate AI: Your Digital Health Diagnosis and Assistant Tool",
     description: "Developed an AI-powered virtual assistant with voice control capabilities, integrating natural language processing and speech recognition.",
     technologies: ["Python", "Streamlit", "NLP", "Speech Recognition"],
     github: "https://github.com/Adirohansuyal/Personal_Assistant",
-    demo: "https://adityaalexa.streamlit.app/",
+    demo: "https://adirohansuyal.github.io/healthmate-ai/",
   },
   {
     title: "Airfare Price Prediction Web App",
