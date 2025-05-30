@@ -8,7 +8,7 @@ import Contact from "@/components/sections/contact";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div>
       <Navbar />
       <motion.main
         initial={{ opacity: 0, y: 20 }}
